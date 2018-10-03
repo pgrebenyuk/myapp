@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <title>basket</title>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-</head>
-<body>
-    <div id="basket"><b>basket</b></div>
-    <form>
-        <input type='button' value="Submit" id='baskettButton'/>
-    </form>
     <script>
         $(function() {
-            $("#baskettButton").click(function() {
+            $("#basketButton").click(function() {
                 var serializedData = $('#basket p').serialize();
                 $.ajax({
                     type : "POST",
@@ -20,7 +14,7 @@
                     data : serializedData,
                     contentType: "charset=UTF-8",
                     success: function (response) {
-                 //       alert("Account created", + response.statusCode);
+                        console.log("Success", + response.statusCode);
                     },
                     statusCode: {
                         201: function() {
@@ -29,12 +23,17 @@
                         }
                     },
                     error: function (e) {
-                        alert("Server error - " + e);
+                        console.log("Server error - " + e);
                     }
                 });
             });
         });
     </script>
-
+</head>
+<body>
+    <div id="basket"><b>basket</b></div>
+    <form>
+        <input type='button' value="Submit" id='basketButton'/>
+    </form>
 </body>
 </html>

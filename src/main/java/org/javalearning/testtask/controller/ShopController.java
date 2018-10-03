@@ -13,11 +13,8 @@ import java.io.PrintWriter;
  */
 @WebServlet("/myapp/shop")
 public class ShopController extends HttpServlet{
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/shop.html").forward(req, resp);
-       // PrintWriter writer = resp.getWriter();
-       // writer.println("<h1>Hello, World!</h1>");
     }
 }
