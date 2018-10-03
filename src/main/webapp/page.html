@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script type="text/javascript" src="utils.js" ></script>
+</head>
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    var count = 0;
+    $( document ).ready(function() {
+        $('#result').load('http://localhost:8080/datat.html #items');
+        $('#items :input').change(function() {
+            if (this.checked) {
+                count++;
+
+            } else {
+                count--;
+            }
+
+            if (count > 0) {
+                $('#hiddenBucket').show();
+            } else {
+                $('#hiddenBucket').hide();
+            }
+        });
+
+        if (count > 0) {
+            $('#hiddenBucket').show();
+        } else {
+            $('#hiddenBucket').hide();
+        }
+    });
+</script>
+
+<body>
+<h1>Hello</h1>
+<div id="result">Items</div>
+
+<div id="hiddenBucket">
+    <h1>Bucket</h1>
+    <input type="submit" value="Buy">
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>shop</title>
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+        <style>
+            aside {
+                background: #f0f0f0;
+                padding: 10px;
+                width: 200px;
+                float: right;
+                display: none;
+            }
+            article {
+                margin-right: 150px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <aside id="aside">
+            <div id="container">
+            </div>
+        </aside>
+        <article>
+            <div id="result">
+            </div>
+        </article>
+        <script>
+            document.createElement('aside');
+            document.createElement('article');
+
+            $(document).ready(function() {
+                var count = 0;
+                $('#result').load('http://localhost:8080/myapp/shop/items #items');
+                $('#container').load('http://localhost:8080/myapp/shop/basket');
+                $('#result').on('click',':checkbox', function() {
+                    $id = this.id;
+
+                    if (this.checked) {
+                        $name = this.labels[0].textContent;
+                        count++;
+                        $('#basket').append('<p id=' + $id + '>' + $name + '</p>');
+                    } else {
+                        var elem = '#basket #'+$id;
+                        count--;
+                        $(elem).remove();
+                    }
+                    if (count > 0) {
+                        $('#aside').show();
+                    } else {
+                        $('#aside').hide();
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
