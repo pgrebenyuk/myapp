@@ -3,32 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>basket</title>
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-        $(function() {
-            $("#basketButton").click(function() {
-                var serializedData = $('#basket p').serialize();
-                $.ajax({
-                    type : "POST",
-                    url : "/myapp/buyService",
-                    data : serializedData,
-                    contentType: "charset=UTF-8",
-                    success: function (response) {
-                        console.log("Success", + response.statusCode);
-                    },
-                    statusCode: {
-                        201: function() {
-                            var url = "/myapp/shop/success";
-                            $(location).attr('href',url);
-                        }
-                    },
-                    error: function (e) {
-                        console.log("Server error - " + e);
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <div id="basket"><b>basket</b></div>
