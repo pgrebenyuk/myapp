@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * Created by 007 on 29.09.2018.
  */
-@WebServlet("/myapp/shop")
+@WebServlet("/shop")
 public class ShopController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

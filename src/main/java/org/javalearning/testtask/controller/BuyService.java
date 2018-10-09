@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by 007 on 30.09.2018.
  */
-@WebServlet("/myapp/buyService")
+@WebServlet("/buyService")
 public class BuyService extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {

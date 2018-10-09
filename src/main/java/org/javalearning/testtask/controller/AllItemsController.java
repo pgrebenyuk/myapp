@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by 007 on 29.09.2018.
  */
-@WebServlet("/myapp/shop/items")
+@WebServlet("/shop/items")
 public class AllItemsController  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by 007 on 29.09.2018.
  */
-@WebServlet("/myapp/shop/success")
+@WebServlet("/shop/success")
 public class SuccessController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
