@@ -20,25 +20,4 @@ $(function() {
             $('#aside').hide();
         }
     })
-    $("#basketButton").click(function() {
-        var serializedData = $('#basket p').serialize();
-        $.ajax({
-            type : "POST",
-            url : "/myapp/buyService",
-            data : serializedData,
-            contentType: "charset=UTF-8",
-            success: function (response) {
-                console.log("Success", + response.statusCode);
-            },
-            statusCode: {
-                201: function() {
-                    var url = "/myapp/shop/success";
-                    $(location).attr('href',url);
-                }
-            },
-            error: function (e) {
-                console.log("Server error - " + e);
-            }
-        });
-    });
 })
