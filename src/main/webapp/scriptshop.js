@@ -22,7 +22,7 @@ $(function() {
     $("#openBasket").click(function() {
         var items = $('#container p');
         var itemsString = '';
-        var url = '/myapp/shop/basket?items=';
+        var url = 'http://localhost:8080/myapp/shop/basket?items=';
         items.each(function (index) {
             if (index == 0) {
                 itemsString += $(this).text();
@@ -32,13 +32,5 @@ $(function() {
             console.log(itemsString);
             $(location).attr('href', url + itemsString);
         });
-        //$.ajax({
-        //    url: 'http://localhost:8080/myapp/shop/basket',
-        //    data: itemsString,
-        //}).then(function (result) {
-        //    console.log('result', result);
-        //}).catch(function (err) {
-        //    console.log('err', err)
-        //})
     });
 })

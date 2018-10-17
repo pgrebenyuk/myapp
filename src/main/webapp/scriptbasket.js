@@ -1,4 +1,10 @@
 $(function() {
+    var paramValue = window.location.search.split('items=')[1];
+    paramValue = paramValue.split(",");
+    for (var i = 0; i < paramValue.length; i++){
+        $('#basket').append('<p>' + paramValue[i] + '</p>');
+    };
+
     $("#basketButton").click(function() {
         var serializedData = $('#basket p').serialize();
         $.ajax({
