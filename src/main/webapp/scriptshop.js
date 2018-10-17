@@ -22,6 +22,7 @@ $(function() {
     $("#openBasket").click(function() {
         var items = $('#container p');
         var itemsString = '';
+        var url = '/myapp/shop/basket?items=';
         items.each(function (index) {
             if (index == 0) {
                 itemsString += $(this).text();
@@ -29,8 +30,8 @@ $(function() {
                 itemsString += ',' + $(this).text();
             }
             console.log(itemsString);
+            $(location).attr('href', url + itemsString);
         });
-        $('#items').value()
         //$.ajax({
         //    url: 'http://localhost:8080/myapp/shop/basket',
         //    data: itemsString,
