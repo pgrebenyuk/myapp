@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <title>shop</title>
-        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="scriptshop.js"></script>
 
         <style>
@@ -23,6 +23,10 @@
         <aside id="aside">
             <div id="container">
             </div>
+            <form action="/myapp/shop/basket">
+                <input type="text" name="items" id="items">
+                <input type='submit' value="open basket" id='openBasket'>
+            </form>
         </aside>
         <article>
             <div id="result">
