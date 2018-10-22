@@ -1,6 +1,6 @@
-$(function() {
+
+require(['jquery','modyleshop'], function ($) {
     var count = 0;
-    $('#result').load('http://localhost:8080/myapp/shop/items #items');
     $('#result').on('click',':checkbox', function() {
         var id = this.id;
 
@@ -14,9 +14,9 @@ $(function() {
             $(elem).remove();
         }
         if (count > 0) {
-            $('#aside').show();
+            $('#aside').show()
         } else {
-            $('#aside').hide();
+            $('#aside').hide()
         }
     });
     $("#openBasket").click(function() {
@@ -25,12 +25,29 @@ $(function() {
         var url = 'http://localhost:8080/myapp/shop/basket?items=';
         items.each(function (index) {
             if (index == 0) {
-                itemsString += $(this).text();
+                itemsString += $(this).text()
             } else {
-                itemsString += ',' + $(this).text();
+                itemsString += ',' + $(this).text()
             }
             console.log(itemsString);
             $(location).attr('href', url + itemsString);
-        });
-    });
+        })
+    })
+});
+
+require(['jquery','modylebasket'], function ($)  {
+    $("#basketButton").click(function() {
+        $.post("http://localhost:8080/myapp/buyService")
+            .then(function(data, textStatus, jqHXR) {
+                if (jqHXR.status == 201) {
+                    var url = "http://localhost:8080/myapp/shop/success";
+                    $(location).attr('href',url)
+                } else {
+                    console.log(jqHXR.status)
+                }
+            })
+            .fail(function() {
+                console.log('error:')
+            })
+    })
 })
