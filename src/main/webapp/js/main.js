@@ -1,5 +1,5 @@
 
-require(['jquery','modyleshop'], function ($) {
+require(['jquery','moduleshop'], function ($) {
     var count = 0;
     $('#result').on('click',':checkbox', function() {
         var id = this.id;
@@ -35,7 +35,8 @@ require(['jquery','modyleshop'], function ($) {
     })
 });
 
-require(['jquery','modylebasket'], function ($)  {
+require(['jquery','modulebasket'], function ($)  {
+
     $("#basketButton").click(function() {
         $.post("http://localhost:8080/myapp/buyService")
             .then(function(data, textStatus, jqHXR) {
