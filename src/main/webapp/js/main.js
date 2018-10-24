@@ -19,10 +19,13 @@ require(['jquery','moduleshop'], function ($) {
             $('#aside').hide()
         }
     });
+});
+
+require(['jquery','moduleshop'], function ($) {
     $("#openBasket").click(function() {
         var items = $('#container p');
         var itemsString = '';
-        var url = 'http://localhost:8080/myapp/shop/basket?items=';
+        var url = '/myapp/shop/basket?items=';
         items.each(function (index) {
             if (index == 0) {
                 itemsString += $(this).text()
@@ -36,19 +39,18 @@ require(['jquery','moduleshop'], function ($) {
 });
 
 require(['jquery','modulebasket'], function ($)  {
-
     $("#basketButton").click(function() {
-        $.post("http://localhost:8080/myapp/buyService")
-            .then(function(data, textStatus, jqHXR) {
-                if (jqHXR.status == 201) {
-                    var url = "http://localhost:8080/myapp/shop/success";
-                    $(location).attr('href',url)
-                } else {
-                    console.log(jqHXR.status)
-                }
-            })
-            .fail(function() {
-                console.log('error:')
-            })
+        $.post("/myapp/buyService")
+        .then(function(data, textStatus, jqHXR) {
+            if (jqHXR.status == 201) {
+                var url = "/myapp/shop/success";
+                $(location).attr('href',url)
+            } else {
+                console.log(jqHXR.status)
+            }
+        })
+        .fail(function() {
+            console.log('error:')
+        })
     })
 })
