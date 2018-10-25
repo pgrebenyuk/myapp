@@ -13,12 +13,13 @@ require(['jquery','moduleshop'], function ($) {
             count--;
             $(elem).remove();
         }
+
         if (count > 0) {
-            $('#aside').show()
+            $('#aside').show();
         } else {
-            $('#aside').hide()
+            $('#aside').hide();
         }
-    });
+    })
 });
 
 require(['jquery','moduleshop'], function ($) {
@@ -27,10 +28,11 @@ require(['jquery','moduleshop'], function ($) {
         var itemsString = '';
         var url = '/myapp/shop/basket?items=';
         items.each(function (index) {
+
             if (index == 0) {
-                itemsString += $(this).text()
+                itemsString += $(this).text();
             } else {
-                itemsString += ',' + $(this).text()
+                itemsString += ',' + $(this).text();
             }
             console.log(itemsString);
             $(location).attr('href', url + itemsString);
@@ -42,15 +44,16 @@ require(['jquery','modulebasket'], function ($)  {
     $("#basketButton").click(function() {
         $.post("/myapp/buyService")
         .then(function(data, textStatus, jqHXR) {
+
             if (jqHXR.status == 201) {
                 var url = "/myapp/shop/success";
-                $(location).attr('href',url)
+                $(location).attr('href',url);
             } else {
-                console.log(jqHXR.status)
+                console.log(jqHXR.status);
             }
         })
         .fail(function() {
-            console.log('error:')
+            console.log('error:');
         })
     })
 })
