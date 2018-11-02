@@ -1,19 +1,18 @@
 package org.javalearning.testtask.controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.javalearning.testtask.entity.Bought;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by 007 on 30.09.2018.
- */
-@WebServlet("/buyService")
-public class BuyService extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        response.setStatus(HttpServletResponse.SC_CREATED);
+@RestController
+@ResponseStatus(HttpStatus.CREATED)
+public class BuyService {
+
+    @PostMapping("/buyService")
+    public Bought postBuy() {
+        Bought buy = new Bought();
+        buy.setIsBought(true);
+        buy.setUrl("/myapp/shop/success");
+        return buy;
     }
 }

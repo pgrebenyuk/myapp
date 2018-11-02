@@ -46,7 +46,7 @@ require(['jquery','modulebasket'], function ($)  {
         .then(function(data, textStatus, jqHXR) {
 
             if (jqHXR.status == 201) {
-                var url = "/myapp/shop/success";
+                var url = data.url;
                 $(location).attr('href',url);
             } else {
                 console.log(jqHXR.status);
